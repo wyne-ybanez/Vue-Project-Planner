@@ -12,7 +12,7 @@
 // update the project and save the new data to db.json
 //   - create a submit handler and prevent default action
 //   - use the fetch api to send a PATCH request to update
-//   - redirect to the homepage route once done 
+//   - redirect to the homepage route once done
 
 export default {
   props: ['id'],

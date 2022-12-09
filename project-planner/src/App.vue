@@ -4,8 +4,10 @@
 </template>
 
 <script>
+// Import for reference
 import Navbar from './components/Navbar.vue'
 
+// Export to register ie. register what component you're going to use in this component
 export default {
   components: { Navbar }
 }

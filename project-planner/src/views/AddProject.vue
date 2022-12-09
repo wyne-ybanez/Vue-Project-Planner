@@ -1,5 +1,7 @@
 <template>
+  <!-- stops page refresh -->
   <form @submit.prevent="handleSubmit">
+  <!-- end comment -->
     <label>Title</label>
     <input type="text" v-model="title" required>
     <label>Details</label>
@@ -25,13 +27,13 @@ export default {
         id: Math.floor(Math.random() * 10000)
       }
       console.log(project)
-  
+
      fetch('http://localhost:3000/projects', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(project)
       }).then(() => {
-        this.$router.push('/')
+        this.$router.push('/') // redirect them
       }).catch(err => console.log(err))
     }
   }
@@ -44,6 +46,7 @@ export default {
     padding: 20px;
     border-radius: 10px;
   }
+
   label {
     display: block;
     color: #bbb;
@@ -53,6 +56,7 @@ export default {
     letter-spacing: 1px;
     margin: 20px 0 10px 0
   }
+
   input {
     padding: 10px;
     border: 0;
@@ -60,6 +64,7 @@ export default {
     width: 100%;
     box-sizing: border-box;
   }
+
   textarea {
     border: 1px solid #ddd;
     padding: 10px;
@@ -67,6 +72,7 @@ export default {
     box-sizing: border-box;
     height: 100px;
   }
+  
   form button {
     display: block;
     margin: 20px auto 0;
