@@ -3,7 +3,7 @@
     <FilterNav :current="current" @filterChange="current = $event" />
     <div v-if="projects.length">
       <div v-for="project in filteredProjects" :key="project.id">
-      <SingleProject :project="project" @delete="handleDelete" @complete="handleComplete" />
+        <SingleProject :project="project" @delete="handleDelete" @complete="handleComplete" />
       </div>
     </div>
   </div>
@@ -57,6 +57,17 @@ export default {
       p.complete = !p.complete
     }
   },
+  /*
+    Computed should be used when:
+    - calculating and displaying values
+    - filtering for data
+    - boolean conditional logic
+
+    Computed Properties values are cached
+      this means it is ready to update when the value is changed again,
+      this makes it more efficient than using a method that is called every time.
+      ie. making a component much more prepared to react for temporary data.
+  */
   computed: {
     filteredProjects() {
       if (this.current === 'completed') {

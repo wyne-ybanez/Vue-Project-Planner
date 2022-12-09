@@ -1,5 +1,6 @@
 <template>
   <Navbar />
+  <!-- Router view automatically picks Home, referenced in router folder -->
   <router-view/>
 </template>
 
