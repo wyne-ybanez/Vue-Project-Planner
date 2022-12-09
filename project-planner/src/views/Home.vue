@@ -23,8 +23,8 @@ export default {
     };
   },
   /*
-   fetch data when view is mounted
-   update projecct array with data we receive
+   - fetch data when view is mounted on DOM
+   - update projects array with data we receive
   */
   mounted() {
     fetch('http://localhost:3000/projects')

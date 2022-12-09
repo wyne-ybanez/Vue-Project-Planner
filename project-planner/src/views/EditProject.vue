@@ -9,12 +9,6 @@
 </template>
 
 <script>
-/*
-  update the project and save the new data to db.json
-  - create a submit handler and prevent default action
-  - use the fetch api to send a PATCH request to update
-  - redirect to the homepage route once done
-*/
 export default {
   props: ['id'], // SingleProject.vue -> project.id
   data() {
@@ -34,6 +28,12 @@ export default {
       }).catch(err => console.log(err))
   },
   methods: {
+    /*
+    update the project and save the new data to db.json
+    - use the fetch api to send a PATCH request to update -> dependent on uri & id
+    - stringify the updates for the server, needs to be stringified as this is an object
+    - redirect to homepage when finished
+    */
     handleSubmit() {
       fetch(this.uri, {
         method: 'PATCH',
