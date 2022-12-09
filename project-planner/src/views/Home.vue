@@ -10,11 +10,6 @@
 </template>
 
 <script>
-// challenge
-//   - when the filter changes, only show those projects
-//   - e.g. if we click 'completed' only show completed project
-//   - use a computed property to do this
-
 import SingleProject from '../components/SingleProject.vue'
 import FilterNav from '../components/FilterNav.vue'
 
@@ -27,6 +22,10 @@ export default {
       current: 'all',
     };
   },
+  /*
+   fetch data when view is mounted
+   update projecct array with data we receive
+  */
   mounted() {
     fetch('http://localhost:3000/projects')
       .then(res => res.json())
@@ -34,16 +33,25 @@ export default {
       .catch(err => console.log(err))
   },
   methods: {
+     /*
+      Handles Delete (SingleProject.vue -> id)
+      - once emit is received, it filters for projects without the emitted project ID
+      - we do this because when we delete data, it must also be done at the local level
+     */
     handleDelete(id) {
       this.projects = this.projects.filter(project => {
         return project.id !== id
       })
     },
+    /*
+    Handles Complete
+    -
+    */
     handleComplete(id) {
       let p = this.projects.find(project => {
         return project.id === id
       })
-      p.complete = !p.complete 
+      p.complete = !p.complete
     }
   },
   computed: {

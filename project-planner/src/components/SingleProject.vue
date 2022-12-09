@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  props: ['project'],
+  props: ['project'], // this is how you import props
   data() {
     return {
       showDetails: false,
@@ -26,6 +26,12 @@ export default {
     }
   },
   methods: {
+    /*
+      Delete
+      - requiring uri, method, id
+      - deletes from the database, but not in the local level
+      - emits a signal picked up in Home.vue
+    */
     deleteProject() {
       fetch(this.uri, { method: 'DELETE' })
         .then(() => this.$emit('delete', this.project.id))
@@ -41,7 +47,6 @@ export default {
       }).catch(err => console.log(err))
     }
   }
-  
 };
 </script>
 
@@ -54,27 +59,33 @@ export default {
     box-shadow: 1px 2px 3px rgba(0,0,0,0.05);
     border-left: 4px solid #e90074;
   }
+
   h3 {
     cursor: pointer;
   }
+
   .actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+
   .material-icons {
     font-size: 24px;
     margin-left: 10px;
     color: #bbb;
     cursor: pointer;
   }
+
   .material-icons:hover {
     color: #777;
   }
+
   /* completed projects */
   .project.complete {
     border-left: 4px solid #00ce89;
   }
+
   .project.complete .tick {
     color: #00ce89;
   }
