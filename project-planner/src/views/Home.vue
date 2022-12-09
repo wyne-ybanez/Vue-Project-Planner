@@ -10,9 +10,11 @@
 </template>
 
 <script>
+// Import for reference
 import SingleProject from '../components/SingleProject.vue'
 import FilterNav from '../components/FilterNav.vue'
 
+// Export to register for use in view
 export default {
   name: 'Home',
   components: { SingleProject, FilterNav },
