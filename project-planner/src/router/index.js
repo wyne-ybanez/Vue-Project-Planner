@@ -15,7 +15,7 @@ const routes = [
     component: AddProject
   },
   {
-    path: '/projects/:id',
+    path: '/projects/:id', // route parameter is required bc we are getting this from db.json
     name: 'EditProject',
     component: EditProject,
     props: true

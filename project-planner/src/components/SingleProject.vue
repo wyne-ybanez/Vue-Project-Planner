@@ -6,9 +6,11 @@
       <h3 @click="showDetails = !showDetails">{{ project.title }}</h3>
       <div class="icons">
         <span @click="deleteProject" class="material-icons">delete</span>
+        <!-- hooked to vue-router, refer to name of route, set parameters -->
         <router-link :to="{ name: 'EditProject', params: { id: project.id }}">
           <span class="material-icons">edit</span>
         </router-link>
+        <!-- end edit-project comment -->
         <span @click="toggleComplete" class="material-icons tick">done</span>
       </div>
     </div>
