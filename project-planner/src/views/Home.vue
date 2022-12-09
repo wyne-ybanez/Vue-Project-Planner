@@ -44,8 +44,9 @@ export default {
       })
     },
     /*
-    Handles Complete
-    -
+      Handles Complete (SingleProject.vue -> id)
+      - update, find first then set variable
+      - if found (true), set it to 'p' variable
     */
     handleComplete(id) {
       let p = this.projects.find(project => {

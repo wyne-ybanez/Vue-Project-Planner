@@ -1,5 +1,7 @@
 <template>
+  <!-- Evaluates if 'project.complete' is true, if true add class named 'complete' -->
   <div class="project" :class="{ complete: project.complete }">
+  <!-- End evaluation -->
     <div class="actions">
       <h3 @click="showDetails = !showDetails">{{ project.title }}</h3>
       <div class="icons">
@@ -37,6 +39,12 @@ export default {
         .then(() => this.$emit('delete', this.project.id))
         .catch(err => console.log(err))
     },
+    /*
+      Complete
+      - requiring uri, method, id
+      - updates completed status
+      - JSON stringify to make it a JSON string (Naturally a JS object, can't send objects between client and server)
+    */
     toggleComplete() {
       fetch(this.uri, {
         method: 'PATCH',
